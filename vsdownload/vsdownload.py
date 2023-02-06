@@ -34,6 +34,7 @@ def call_save(
         output: str = typer.Option("merged.ts", "--output", "-o", help="path for output of downloaded video stream file", metavar="merged.ts/merged.mp4/merged.mkv"),
         cleanup: bool = typer.Option(True, help="delete temporary downloaded segments, add --no-cleanup flag to use resume capabilities"),
         max_quality: bool = typer.Option(False, "--max-quality", "-m", help="auto select highest quality sub m3u8 playlist"),
+        min_quality: bool = typer.Option(False, "--min-quality", "-M", help="auto select lowest quality sub m3u8 playlist"),
         verbose: bool = typer.Option(False, "--verbose", "-v", help="verbose downloading outputs and logs"),
         baseurl: str = typer.Option(None, "--baseurl", "-b", help="base url for all segments, usally needed for local m3u8 file", metavar="http://videoserver.com/", show_default=False),
         threads: int = typer.Option(5, "--threads", "-t", help="max thread count for parallel threads to download segments", metavar="1-16", min=1, max=16),

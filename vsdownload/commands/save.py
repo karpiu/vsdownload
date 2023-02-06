@@ -168,12 +168,16 @@ class ProcessM3U8:
 
             resolution_bandwidth_sum.append(total_digit_sum)
             
-        if not self.args.max_quality:
-            selected_playlist = int(input("\nchoose a m3u8 playlist (1, 2, etc.): "))
-        else:
+        if self.args.max_quality:
             selected_playlist = resolution_bandwidth_sum.index(max(resolution_bandwidth_sum)) + 1
             print()
             self.print_info(f"auto selected m3u8 playlist at index {selected_playlist}")
+        elif self.args.min_quality:
+            selected_playlist = resolution_bandwidth_sum.index(min(resolution_bandwidth_sum)) + 1
+            print()
+            self.print_info(f"auto selected m3u8 playlist at index {selected_playlist}")
+        else:
+            selected_playlist = int(input("\nchoose a m3u8 playlist (1, 2, etc.): "))
             
         m3u8_playlist_file = m3u8_file.playlists[selected_playlist - 1]
         playlist_absolute_uri = utils.find_absolute_uri(baseurl, m3u8_playlist_file)
