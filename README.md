@@ -1,3 +1,8 @@
+# Changelog for this fork:
+- Added min-quality cli option
+
+
+
 > **This project is deprecated and it will no longer be maintained.**
 > **This program has been rewritten in Rust located at [https://github.com/clitic/vsd](https://github.com/clitic/vsd).**
 
